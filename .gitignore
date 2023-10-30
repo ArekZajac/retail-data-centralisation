@@ -1,3 +1,7 @@
 */__pycache__
+__pycache__/*
 .vscode/*
 .DS_Store
+db_creds.json
+.env
+main.py
