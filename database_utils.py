@@ -21,4 +21,4 @@ class DatabaseConnector:
 
     def upload_to_db(self, df, name, creds_key_prefix='LOC'):
         engine = self.init_db_engine(creds_key_prefix)
-        df.to_sql(name, engine)
+        df.to_sql(name, engine, if_exists='replace')

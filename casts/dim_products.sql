@@ -1,8 +1,8 @@
 UPDATE dim_products 
 SET product_price = REPLACE(product_price, '£', '')::numeric;
 
--- ALTER TABLE dim_products 
--- ADD COLUMN weight_class VARCHAR(50);
+ALTER TABLE dim_products 
+ADD COLUMN weight_class VARCHAR(50);
 
 UPDATE dim_products 
 SET weight_class = 

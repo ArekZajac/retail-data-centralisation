@@ -2,14 +2,13 @@ import pandas as pd
 
 class DataCleaning:
     def clean_user_data(self, df):
-        df = df.dropna(how='all')
         df.drop(columns=['index'], inplace=True)
         df['date_of_birth'] = pd.to_datetime(df['date_of_birth'], errors='coerce')
         df['join_date'] = pd.to_datetime(df['join_date'], errors='coerce')
-        df["phone_number"] = df["phone_number"].str.replace(r'[^0-9+\-()\s]', '', regex=True) # unwanted characters
-        df["phone_number"] = df["phone_number"].str.strip().str.replace(r'\s+', ' ', regex=True) # extra spaces
+        df["phone_number"] = df["phone_number"].str.replace(r'[^0-9+\-()\s]', '', regex=True)
+        df["phone_number"] = df["phone_number"].str.strip().str.replace(r'\s+', ' ', regex=True)
         df['address'] = df['address'].str.replace('\n', ', ')
-        df = df.dropna(subset=['date_of_birth', 'join_date'])
+        df = df.dropna(subset=['date_of_birth', 'join_date'], how='all')
         return df
     
     def clean_card_data(self, df):
@@ -17,8 +16,8 @@ class DataCleaning:
         df = df.drop(misrepresented_rows.index)
         df['card_number'] = df['card_number'].str.replace(r'\D', '', regex=True)
         df['date_payment_confirmed'] = pd.to_datetime(df['date_payment_confirmed'], errors='coerce') 
-        df = df.dropna(subset=['date_payment_confirmed'])
-        valid_expiry_rows = df['expiry_date'].str.match(r"^(0[1-9]|1[0-2])\/\d{2}$")
+        # df = df.dropna(subset=['date_payment_confirmed'])
+        valid_expiry_rows = df['expiry_date'].str.match(r"^(0[1-9]|1[0-2])\/\d{2}$").fillna(False)
         df = df[valid_expiry_rows]
         return df
     
@@ -30,7 +29,7 @@ class DataCleaning:
         df['longitude'] = pd.to_numeric(df['longitude'], errors='coerce')
         df['latitude'] = pd.to_numeric(df['latitude'], errors='coerce')
         df['staff_numbers'] = pd.to_numeric(df['staff_numbers'], errors='coerce', downcast='integer')
-        df = df.dropna(how='any')
+        df = df.dropna(subset=['staff_numbers', 'longitude', 'opening_date', 'latitude'], how='all')
         return df
     
     def convert_product_weights(self, w):
@@ -54,7 +53,7 @@ class DataCleaning:
         df = df.reset_index(drop=True)
         df['date_added'] = pd.to_datetime(df['date_added'], errors='coerce')
         df['weight'] = df['weight'].apply(self.convert_product_weights)
-        df = df.dropna(how='any')
+        df = df.dropna(subset='date_added')
         return df
     
     def clean_orders_data(self, df):
