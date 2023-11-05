@@ -41,7 +41,16 @@ All extracted data is then cleaned using the Pandas library for Python. Once cle
 │    - Cast data into correct data types.
 │    - Set primary keys.
 │    - Set foreign key constraints.
+├─ <b>queries/</b>
+│  SQL queries to test the local database.
 ├─ <b>db_backups/</b>
 │  Backups of the local database during project milestones.
 ├─ <b>README.md</b>
 ├─ <b>LICENSE</b>
+</pre>
+
+### Local Database Schema
+
+<div align="center">
+  <img src="erd.png" width="1000"/>
+</div>
