@@ -1,5 +1,3 @@
-*Note: This project is a part of a data engineering course and is not intended for real-world use.*
-
 # Multinational Retail Data Centralisation
 
 ### Overview
@@ -59,3 +57,63 @@ In order to install all dependencies, run `pip install -r requirements.txt` in t
 
 ### Tests
 
+#### [The average time taken between each sale grouped by year:](tests/time_between_sales.sql)
+
+|year|hours|minutes|seconds  |milliseconds|
+|----|-----|-------|---------|------------|
+|2013|2    |17     |13.712533|713         |
+|1993|2    |15     |35.481806|482         |
+|2002|2    |13     |39.915690|916         |
+|2008|2    |13     |3.770202 |770         |
+|2022|2    |13     |2.003698 |4           |
+|1995|2    |13     |0.053404 |53          |
+...
+
+#### [Which type of store is generating the most sales in Germany:](tests/sales_by_german_store_type.sql)
+
+|total_sales|store_type|country_code|
+|-----------|----------|------------|
+|198277.57  |Outlet    |DE          |
+|247608.37  |Mall Kiosk|DE          |
+|336553.52  |Super Store|DE          |
+|1070843.15 |Local     |DE          |
+
+#### [The overall staff numbers in each location around the world:](tests/staff_by_country.sql)
+
+|total_staff_numbers|country_code|
+|-------------------|------------|
+|12559              |GB          |
+|5696               |DE          |
+|1282               |US          |
+
+#### [Which months in which years have had the most sales historically:](tests/sales_by_date.sql)
+
+|total_sales|year|month|
+|-----------|----|-----|
+|27936.77   |1994|3    |
+|27356.14   |2019|1    |
+|27091.67   |2009|8    |
+|26679.98   |1997|11   |
+|26310.97   |2018|12   |
+|26277.72   |2019|8    |
+|26236.67   |2017|9    |
+|25798.12   |2010|5    |
+|25648.29   |1996|8    |
+|25614.54   |2000|1    |
+
+#### [The total and percentage of sales coming from each of the different store types:](tests/sales_by_store.sql)
+
+|store_type|total_sales|percentage_total|
+|----------|-----------|----------------|
+|Local     |3328735.1699998286|43.12           |
+|Web Portal|1725944.749999953|22.36           |
+|Super Store|1144460.0999999854|14.83           |
+|Mall Kiosk|684963.8099999982|8.87            |
+|Outlet    |596767.7099999997|7.73            |
+
+#### [How many products were sold and the amount of sales made for online and offline purchases:](tests/online_sales.sql)
+
+|numbers_of_sales|product_quantity_count|location|
+|----------------|----------------------|--------|
+|26957           |107739                |Web     |
+|93166           |374047                |Offline |
