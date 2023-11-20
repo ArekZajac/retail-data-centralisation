@@ -29,7 +29,7 @@ In order to install all dependencies, run `pip install -r requirements.txt` in t
 ### Project Structure
 
 <pre>
-<b>multinational-retail-data-centralisation/</b>
+<b>retail-data-centralisation/</b>
 ├─ <b>main.py</b>
 │  Code orchestrating the processing and cleaning.
 ├─ <b>database_utils.py</b>
