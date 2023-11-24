@@ -38,6 +38,8 @@ In order to install all dependencies, run `pip install -r requirements.txt` in t
 │  <i>Code used to extract data from sources.</i>
 ├─ <b>data_cleaning.py</b>
 │  <i>Specialised functions for cleaning extracted data.</i>
+├─ <b>.env.template</b>
+│  <i>Template for required .env file.</i>
 ├─ <b>casts/</b>
 │  <i>The SQL queries required to:
 │    - Cast data into correct data types.
@@ -48,7 +50,7 @@ In order to install all dependencies, run `pip install -r requirements.txt` in t
 ├─ <b>db_backups/</b>
 │  <i>Backups of the local database during project milestones.</i>
 ├─ <b>README.md</b>
-├─ <b>LICENSE</b>
+└─ <b>LICENSE</b>
 </pre>
 
 ### Local Database Schema
