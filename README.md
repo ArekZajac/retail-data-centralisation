@@ -24,29 +24,29 @@ In order to install all dependencies, run `pip install -r requirements.txt` in t
 - SQLAlchemy
 - tabula_py
 
-*Note: A populated .env file is required for this project to funtion.*
+*Note: A populated .env file is required for this project to function.*
 
 ### Project Structure
 
 <pre>
 <b>retail-data-centralisation/</b>
 ├─ <b>main.py</b>
-│  Code orchestrating the processing and cleaning.
+│  <i>Code orchestrating the processing and cleaning.</i>
 ├─ <b>database_utils.py</b>
-│  Helper functions for interfacing with databases.
+│  <i>Helper functions for interfacing with databases.</i>
 ├─ <b>data_extraction.py</b>
-│  Code used to extract data from sources.
+│  <i>Code used to extract data from sources.</i>
 ├─ <b>data_cleaning.py</b>
-│  Specialised functions for cleaning extracted data.
+│  <i>Specialised functions for cleaning extracted data.</i>
 ├─ <b>casts/</b>
-│  The SQL queries required to:
+│  <i>The SQL queries required to:
 │    - Cast data into correct data types.
 │    - Set primary keys.
-│    - Set foreign key constraints.
+│    - Set foreign key constraints.</i>
 ├─ <b>tests/</b>
-│  SQL queries to test the local database.
+│  <i>SQL queries to test the local database.</i>
 ├─ <b>db_backups/</b>
-│  Backups of the local database during project milestones.
+│  <i>Backups of the local database during project milestones.</i>
 ├─ <b>README.md</b>
 ├─ <b>LICENSE</b>
 </pre>
